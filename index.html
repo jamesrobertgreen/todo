@@ -31,19 +31,12 @@
             <table class="table table-bordered">
                 <tr ng-hide="toDoList.length == 0" class="row">
                     <td>Item</td>
-                    <td>Done/Not Done</td>
                     <td>Remove Item</td>
                 </tr>
                 <tr class="row" ng-repeat="toDo in toDoList">
-                    <div class="click-row" ng-click="markDone($index)">
-                        <td>{{toDo.Item}}</td>
-                    </div>
+                    <td ng-click="markDone(toDo)"><p ng-class="{strike: toDo.Done}">{{toDo.Item}}</p></td>
                     <td>
-                        <button ng-hide="toDo.Done" class="btn btn-lg btn-success" ng-click="markDone(toDo)"><i class="ion-checkmark"></i></button>
-                        <button ng-show="toDo.Done"class="btn btn-lg btn-danger" ng-click="markDone(toDo)">X</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-lg btn-primary" ng-click="remove($index)">-</button>
+                        <button class="btn btn-lg btn-danger" ng-click="remove($index)">X</button>
                     </td>
                 </tr>
                 <tr class="row">
