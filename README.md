@@ -6,4 +6,4 @@ Features to be added:
 - [ ] Login and database storage
 - [ ] Dragable items
 - [x] Mark items as done by clicking the rows (strikethrough)
-- [ ] Make the rows change appearance on hover
+- [x] Make the rows change appearance on hover
