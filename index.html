@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="scripts/app.js"></script>
+    <script src="scripts/toDoController.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+</head>
+
+<body ng-app="toDo" ng-controller="toDoController" ng-cloak>
+    <div class="container">
+        <form name="toDoForm" ng-submit="toDoForm.$valid && addItem(newItem)">
+            <div class="form-group">
+                <input type="text" name="newItem" required class="form-control input-lg" ng-minlength="1" placeholder="Add Item" ng-model="newItem"> </div>
+            <button type="submit" class="btn btn-lg btn-primary">Add</button>
+        </form>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title"> To Do List</h1> </div>
+            <table class="table table-bordered">
+                <tr ng-hide="toDoList.length == 0" class="row">
+                    <td>Item</td>
+                    <td>Done/Not Done</td>
+                    <td>Remove Item</td>
+                </tr>
+                <tr class="row" ng-repeat="toDo in toDoList">
+                    <div class="click-row" ng-click="markDone($index)">
+                        <td>{{toDo.Item}}</td>
+                    </div>
+                    <td>
+                        <button ng-hide="toDo.Done" class="btn btn-lg btn-success" ng-click="markDone(toDo)"><i class="ion-checkmark"></i></button>
+                        <button ng-show="toDo.Done"class="btn btn-lg btn-danger" ng-click="markDone(toDo)">X</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-lg btn-primary" ng-click="remove($index)">-</button>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td ng-show="toDoList.length == 0">Please enter some items to do</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
