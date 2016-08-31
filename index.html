@@ -18,7 +18,7 @@
     <title>Todo List</title>
 </head>
 
-<body ng-app="toDo" ng-controller="toDoController" ng-cloak>
+<body ng-app="toDo" ng-controller="toDoController" ng-init="init()" ng-cloak>
     <div class="container">
         <form name="toDoForm" ng-submit="toDoForm.$valid && addItem(newItem)">
             <div class="form-group">
