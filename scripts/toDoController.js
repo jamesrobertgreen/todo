@@ -8,10 +8,10 @@ app.controller('toDoController', ['$scope', function ($scope) {
             $scope.toDoList = JSON.parse(tmpToDolist);
         }
     };
-    $scope.addItem = function (newItem) {
+    $scope.addItem = function (item) {
         var newItem = {
-            "Item": newItem
-            , "Done": false
+            "Item": item,
+            "Done": false
         };
         $scope.toDoList = $scope.toDoList.concat(newItem);
         updateStorage();

@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "description": "A simple todo list in angular",
+  "main": "index.html",
+  "authors": [
+    "James Green <jrgreen@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jamesrobertgreen/todo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "ionicons-min": "^2.0.1",
+    "bootstrap-css": "^3.3.6"
+  }
+}
